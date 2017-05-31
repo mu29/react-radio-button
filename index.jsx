@@ -5,7 +5,6 @@ function getInitialCheckedIndex(children) {
 
     for (let i = 0; i < children.length; i++) {
       if (!children[i].props.disabled) {
-          console.log(children[i]);
           checkedIndex = i;
           break;
       }
@@ -44,6 +43,7 @@ export class RadioGroup extends Component {
     const { children, horizontal } = this.props;
     return React.cloneElement(child, {
       horizontal, index, checked,
+      key: index,
       last: index === children.length - 1,
       onChange: this.onChange, ...child.props
     });
@@ -64,7 +64,7 @@ export class RadioGroup extends Component {
 }
 
 RadioGroup.propTypes = {
-  horizontal: PropTypes.boolean,
+  horizontal: PropTypes.bool,
   children: PropTypes.node,
   value: PropTypes.string,
   onChange: PropTypes.func,
@@ -133,11 +133,11 @@ RadioButton.propTypes = {
   pointColor: PropTypes.string,
   value: PropTypes.string,
   index: PropTypes.number,
-  checked: PropTypes.boolean,
+  checked: PropTypes.bool,
   children: PropTypes.node,
-  horizontal: PropTypes.boolean,
+  horizontal: PropTypes.bool,
   onChange: PropTypes.func,
-  disabled: PropTypes.boolean
+  disabled: PropTypes.bool
 };
 
 class RadioIcon extends Component {
@@ -189,6 +189,6 @@ RadioIcon.propTypes = {
   innerSize: PropTypes.number,
   rootColor: PropTypes.string,
   pointColor: PropTypes.string,
-  checked: PropTypes.boolean,
-  disabled: PropTypes.boolean
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool
 };
