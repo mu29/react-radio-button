@@ -4,7 +4,7 @@ Well-designed radio buttons for react
 ## Installation
 ```
 npm install react-radio-buttons --save
-``` 
+```
 Then just add `import { RadioGroup, RadioButton } from 'react-radio-buttons';` into your file.
 
 ## Screenshot
@@ -36,7 +36,7 @@ By using `react-radio-buttons`, you can write like this (full example [here](htt
 
 ## API
 ### RadioGroup
-| name     | description    | 
+| name     | description    |
 |----------|----------------|
 |onChange|called when select child `RadionButton`|
 |value|initial selected value|
@@ -44,7 +44,7 @@ By using `react-radio-buttons`, you can write like this (full example [here](htt
 |chlidren|define your `RadioButton`s|
 
 ### RadioButton
-| name     | description    | 
+| name     | description    |
 |----------|----------------|
 |iconSize|size of `RadioIcon`, which appear right side of button|
 |iconInnerSize|size of `RadioIcon` 's inner icon when selected, **proper value is same as iconSize or half of iconSize**|
@@ -53,6 +53,8 @@ By using `react-radio-buttons`, you can write like this (full example [here](htt
 |pointColor|color when selected|
 |value|return value when selected|
 |children|prefer string|
+|disabled|boolean flag that allows you to disable a certain a button|
+|disabledColor|color when disabled, including the `RadioIcon`|
 
 ## Author
 

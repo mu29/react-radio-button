@@ -37,7 +37,7 @@ let App = React.createClass({
         </RadioGroup>
         <h4 style={ { marginTop: 32 } }>1st option disabled (prevents onChange callback and style overwrite to look disabled)</h4>
         <RadioGroup onChange={ this.onChange }>
-          <RadioButton value="apple" disabled={true}>
+          <RadioButton value="apple" disabled={true} disabledColor={'green'}>
             Apple
           </RadioButton>
           <RadioButton value="orange">
