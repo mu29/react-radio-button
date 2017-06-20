@@ -213,7 +213,7 @@ ReversedRadioButton.propTypes = {
   disabledColor: PropTypes.bool
 };
 
-class RadioIcon extends Component {
+export class RadioIcon extends Component {
   constructor() {
     super();
     this.getStyles = this.getStyles.bind(this);
