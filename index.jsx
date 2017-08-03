@@ -138,7 +138,7 @@ RadioButton.propTypes = {
   horizontal: PropTypes.bool,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
-  disabledColor: PropTypes.bool
+  disabledColor: PropTypes.string
 };
 
 export class ReversedRadioButton extends Component {
