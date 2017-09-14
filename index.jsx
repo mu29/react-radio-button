@@ -16,8 +16,20 @@ function getInitialCheckedIndex(children) {
 export class RadioGroup extends Component {
   constructor({ children, value }) {
     super();
-    const index = children.findIndex(c => c.props.value === value);
-    this.state = { checkedIndex: (index > -1 && !children[index].disabled) ? index : getInitialCheckedIndex(children) };
+
+    const selectedIndex = children.findIndex(c => c.props.selected && !c.props.disabled);
+    const valueIndex = children.findIndex(c => c.props.value === value && !c.props.disabled);
+    let checkedIndex = -1;
+
+    if (selectedIndex > -1) {
+      checkedIndex = selectedIndex;
+    } else if (valueIndex > -1) {
+      checkedIndex = valueIndex;
+    } else {
+        checkedIndex = getInitialCheckedIndex(children);
+    }
+
+    this.state = { checkedIndex:  checkedIndex };
     this.renderChild = this.renderChild.bind(this);
     this.onChange = this.onChange.bind(this);
   }
@@ -138,7 +150,8 @@ RadioButton.propTypes = {
   horizontal: PropTypes.bool,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
-  disabledColor: PropTypes.string
+  disabledColor: PropTypes.string,
+  selected: PropTypes.bool
 };
 
 export class ReversedRadioButton extends Component {
