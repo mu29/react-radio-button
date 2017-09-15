@@ -42,7 +42,7 @@ By using `react-radio-buttons`, you can write like this (full example [here](htt
 | name     | description    |
 |----------|----------------|
 |onChange|called when select child `RadionButton`|
-|value|initial selected value|
+|value|initial selected value, omit for no selection and set to `''` for first enabled control|
 |horizontal|whether align horizontally|
 |chlidren|define your `RadioButton`s|
 

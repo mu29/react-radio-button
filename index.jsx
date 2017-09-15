@@ -1,23 +1,28 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 function getInitialCheckedIndex(children) {
-    let checkedIndex;
+  let checkedIndex;
 
-    for (let i = 0; i < children.length; i++) {
-      if (!children[i].props.disabled) {
-          checkedIndex = i;
-          break;
-      }
+  for (let i = 0; i < children.length; i++) {
+    if (!children[i].props.disabled) {
+      checkedIndex = i;
+      break;
     }
+  }
 
-    return checkedIndex;
+  return checkedIndex;
 }
 
 export class RadioGroup extends Component {
   constructor({ children, value }) {
     super();
+
     const index = children.findIndex(c => c.props.value === value);
-    this.state = { checkedIndex: (index > -1 && !children[index].disabled) ? index : getInitialCheckedIndex(children) };
+    const checkedIndex = !(value !== undefined || value === '') ? -1 : (index > -1 && !children[index].props.disabled) ? index : getInitialCheckedIndex(children)
+    
+    this.state = { checkedIndex: checkedIndex };
+
     this.renderChild = this.renderChild.bind(this);
     this.onChange = this.onChange.bind(this);
   }
@@ -54,7 +59,7 @@ export class RadioGroup extends Component {
     const { horizontal, children, ...props } = this.props;
     const style = horizontal ? { display: 'inline-flex', width: '100%' } : {};
     return (
-      <div style={ style } {...props}>
+      <div style={style} {...props}>
         {
           children.map((c, i) => (this.renderChild(c, i, i === checkedIndex)))
         }
@@ -110,14 +115,14 @@ export class RadioButton extends Component {
     const style = this.getStyles();
     const buttonStyle = Object.assign(style.root, checked ? style.checked : {});
     return (
-      <div style={ buttonStyle } onClick={ this.onClick }>
-        <div style={ { display: 'inline-flex', width: '100%' } }>
-          <div style={ { flex: 1 } }>
-            { children }
+      <div style={buttonStyle} onClick={this.onClick}>
+        <div style={{ display: 'inline-flex', width: '100%' }}>
+          <div style={{ flex: 1 }}>
+            {children}
           </div>
-          <RadioIcon size={ iconSize } innerSize={ iconInnerSize }
-            checked={ checked } rootColor={ rootColor } pointColor={ pointColor }
-            disabled={ disabled } disabledColor={ disabledColor }
+          <RadioIcon size={iconSize} innerSize={iconInnerSize}
+            checked={checked} rootColor={rootColor} pointColor={pointColor}
+            disabled={disabled} disabledColor={disabledColor}
           />
         </div>
       </div>
@@ -181,15 +186,15 @@ export class ReversedRadioButton extends Component {
     const style = this.getStyles();
     const buttonStyle = Object.assign(style.root, checked ? style.checked : {});
     return (
-      <div style={ buttonStyle } onClick={ this.onClick }>
-        <div style={ { display: 'inline-flex', width: '100%' } }>
-          <RadioIcon size={ iconSize } innerSize={ iconInnerSize }
-            checked={ checked } rootColor={ rootColor } pointColor={ pointColor }
-            disabled={ disabled } disabledColor={ disabledColor }
-            marginRight={ padding || 16 }
+      <div style={buttonStyle} onClick={this.onClick}>
+        <div style={{ display: 'inline-flex', width: '100%' }}>
+          <RadioIcon size={iconSize} innerSize={iconInnerSize}
+            checked={checked} rootColor={rootColor} pointColor={pointColor}
+            disabled={disabled} disabledColor={disabledColor}
+            marginRight={padding || 16}
           />
-          <div style={ { flex: 1 } }>
-            { children }
+          <div style={{ flex: 1 }}>
+            {children}
           </div>
         </div>
       </div>
@@ -251,8 +256,8 @@ export class RadioIcon extends Component {
     const style = this.getStyles();
     const iconStyle = Object.assign(style.root, checked ? style.checked : {});
     return (
-      <div style={ iconStyle }>
-        { checked && <div style={ style.inner } /> }
+      <div style={iconStyle}>
+        {checked && <div style={style.inner} />}
       </div>
     );
   }
