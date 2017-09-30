@@ -19,8 +19,15 @@ export class RadioGroup extends Component {
     super();
 
     const index = children.findIndex(c => c.props.value === value);
-    const checkedIndex = !(value !== undefined || value === '') ? -1 : (index > -1 && !children[index].props.disabled) ? index : getInitialCheckedIndex(children)
-    
+    let checkedIndex 
+    if (value === undefined)    // This is the case where it is not specified
+      checkedIndex = -1 
+    else {
+      if (index > -1 && !children[index].props.disabled)
+        checkedIndex = index 
+      else 
+        checkedIndex = getInitialCheckedIndex(children)
+    }
     this.state = { checkedIndex: checkedIndex };
 
     this.renderChild = this.renderChild.bind(this);
@@ -33,6 +40,17 @@ export class RadioGroup extends Component {
 
     const child = children.find(c => c.props.index === checkedIndex);
     return child && child.props.value || '';
+  }
+
+// This is the case to handle late arriving props, 
+// and set the state according to the value
+// as long as it's not disabled
+  componentWillReceiveProps(nextProps) {
+    const children = this.props.children
+    const index = children.findIndex(c => c.props.value === nextProps.value && !c.props.disabled);
+    if (index !== -1 && index !== this.state.checkedIndex) {
+      this.setState({ checkedIndex: index });
+    }
   }
 
   onChange(index) {

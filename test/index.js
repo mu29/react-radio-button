@@ -1,4 +1,5 @@
-import * as React from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import * as sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
 import { RadioGroup, RadioButton, RadioIcon } from '../index.jsx';
