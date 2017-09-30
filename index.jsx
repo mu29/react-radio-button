@@ -142,17 +142,16 @@ export class RadioButton extends Component {
     const labelStyle = Object.assign({}, style.root, style.label)
 
     return (
-      <div>
-        <div style={buttonStyle} onClick={this.onClick}>
-          <div style={{ display: 'inline-flex', width: '100%' }}>
-            <div style={{ flex: 1 }}>
-              {children}
-            </div>
-            <RadioIcon size={iconSize} innerSize={iconInnerSize}
-              checked={checked} rootColor={rootColor} pointColor={pointColor}
-              disabled={disabled} disabledColor={disabledColor}
-            />
+
+      <div style={buttonStyle} onClick={this.onClick}>
+        <div style={{ display: 'inline-flex', width: '100%' }}>
+          <div style={{ flex: 1 }}>
+            {children}
           </div>
+          <RadioIcon size={iconSize} innerSize={iconInnerSize}
+            checked={checked} rootColor={rootColor} pointColor={pointColor}
+            disabled={disabled} disabledColor={disabledColor}
+          />
         </div>
         {
           label ? (
@@ -232,17 +231,15 @@ export class ReversedRadioButton extends Component {
     const labelStyle = Object.assign({}, style.root, style.label)
     
     return (
-      <div>
-        <div style={buttonStyle} onClick={this.onClick}>
-          <div style={{ display: 'inline-flex', width: '100%' }}>
-            <RadioIcon size={iconSize} innerSize={iconInnerSize}
-              checked={checked} rootColor={rootColor} pointColor={pointColor}
-              disabled={disabled} disabledColor={disabledColor}
-              marginRight={padding || 16}
-            />
-            <div style={{ flex: 1 }}>
-              {children}
-            </div>
+      <div style={buttonStyle} onClick={this.onClick}>
+        <div style={{ display: 'inline-flex', width: '100%' }}>
+          <RadioIcon size={iconSize} innerSize={iconInnerSize}
+            checked={checked} rootColor={rootColor} pointColor={pointColor}
+            disabled={disabled} disabledColor={disabledColor}
+            marginRight={padding || 16}
+          />
+          <div style={{ flex: 1 }}>
+            {children}
           </div>
         </div>
         {
