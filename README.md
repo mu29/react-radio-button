@@ -41,16 +41,16 @@ By using `react-radio-buttons`, you can write like this (full example [here](htt
 ### RadioGroup
 | name     | description    |
 |----------|----------------|
-|onChange|called when select child `RadionButton`|
+|onChange|called when select child `RadioButton`|
 |value|initial selected value, omit for no selection and set to `''` for first enabled control|
-|horizontal|whether align horizontally|
-|chlidren|define your `RadioButton`s|
+|horizontal|whether to align horizontally|
+|children|define your `RadioButton`s|
 
 ### RadioButton
 | name     | description    |
 |----------|----------------|
-|iconSize|size of `RadioIcon`, which appear right side of button|
-|iconInnerSize|size of `RadioIcon` 's inner icon when selected, **proper value is same as iconSize or half of iconSize**|
+|iconSize|size of `RadioIcon`, which appears on the right side of button|
+|iconInnerSize|size of `RadioIcon`'s inner icon when selected, **proper value is same as iconSize or half of iconSize**|
 |padding|padding size|
 |rootColor|color when unselected|
 |pointColor|color when selected|
