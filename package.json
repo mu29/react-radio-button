@@ -1,5 +1,5 @@
 {
-  "name": "react-radio-buttons",
+  "name": "@lionel-lints/react-radio-buttons",
   "version": "1.2.0",
   "description": "Well-designed radio buttons for react.",
   "main": "lib/index.js",
