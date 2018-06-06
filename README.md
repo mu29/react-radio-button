@@ -19,7 +19,7 @@ This is your average radio group:
   <input type="radio" name="fruit" value="melon" />Melon
 </form>
 ```
-By using `react-radio-buttons`, you can write like this (full example [here](https://github.com/mu29/react-radio-buttons/blob/master/example/example.js)) :
+By using `react-radio-buttons`, you can write like this (full example [here](https://github.com/mu29/react-radio-buttons/blob/master/example/example.jsx)) :
 ```
 <RadioGroup onChange={ this.onChange } horizontal>
   <RadioButton value="apple">
